@@ -11,18 +11,24 @@ public class GuessingGame {
         int playerGuesses = 0;
         boolean playerGuessedIncorrectly = true;
         while(playerGuessedIncorrectly){
-            System.out.println(playerName + ", please guess a number between 1 and 100:");
-            int playerGuess = scan.nextInt();
-
-            if(playerGuess > numberToGuess){
-                System.out.println("Your guess is too high. Try again.");
-            } else if(playerGuess < numberToGuess){
-                System.out.println("Your guess is too low. Try again.");
-            } else {
-                System.out.println("Great guess! You guessed the number in " + playerGuesses + " tries!");
-                playerGuessedIncorrectly = false;
+            try {
+                System.out.println(playerName + ", please guess a number between 1 and 100:");
+                int playerGuess = Integer.parseInt(scan.nextLine());
+                if(playerGuess > 100 || playerGuess < 1){
+                    System.out.println("What a lousy guess! Next time, try reading the instructions thoroughly before wasting your time!");
+                } else if (playerGuess > numberToGuess){
+                    System.out.println("Your guess is too high. Try again.");
+                } else if(playerGuess < numberToGuess){
+                    System.out.println("Your guess is too low. Try again.");
+                } else {
+                    System.out.println("Great guess! You guessed the number in " + playerGuesses + " tries!");
+                    playerGuessedIncorrectly = false;
+                }
+                playerGuesses++;
+            } catch(NumberFormatException e){
+                System.out.println("Imbecile! Don't you understand the rules of the game? Enter a NUMBER between 1 and 100");
+                continue;
             }
-            playerGuesses++;
         }
 
     }

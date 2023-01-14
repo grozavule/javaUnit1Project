@@ -34,6 +34,8 @@ public class Main {
             System.out.println(e.getMessage());
             System.exit(0);
         }
+
+        new GuessingGame();
     }
 
     public static boolean landingCheck(int minutesLeft) throws InterruptedException {
