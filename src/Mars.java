@@ -1,4 +1,7 @@
-public class Main {
+import java.util.Scanner;
+
+public class Mars {
+    public static Scanner scan = new Scanner(System.in);
     public static void main(String[] args) {
         String colonyName = "Haberdasher";
         int shipPopulation = 300;
@@ -36,6 +39,10 @@ public class Main {
         }
 
         new GuessingGame();
+
+        new MarsExpedition();
+
+        Mars.scan.close();
     }
 
     public static boolean landingCheck(int minutesLeft) throws InterruptedException {
