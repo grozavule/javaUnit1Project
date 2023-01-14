@@ -1,3 +1,5 @@
+import java.util.HashMap;
+
 public class FindingsList {
 
     public FindingsList(){
@@ -23,6 +25,35 @@ public class FindingsList {
             printSamplesList(filteredSamples);
             System.out.println("Perfect!");
 
+            Thread.sleep(1000);
+            HashMap<String, String> fossils = new HashMap<>();
+            fossils.put("Bird Fossil", "The fossil has wings implying it was capable of flight");
+            fossils.put("Fish Fossil", "The fossil is vaguely fish shaped implies there was once water");
+            fossils.put("Tooth Fossil", "The tooth from an unknown fossil");
+            System.out.println("Fossil data downloaded");
+
+            String fossilDescription = "";
+            boolean validFossilWasChosen = false;
+            while(!validFossilWasChosen){
+                System.out.println("Which of the fossils would you like to learn more about? (Bird, fish, or tooth)");
+                String fossilChoice = Mars.scan.nextLine().toLowerCase();
+                switch(fossilChoice){
+                    case "bird":
+                        fossilDescription = fossils.get("Bird Fossil");
+                        break;
+                    case "fish":
+                        fossilDescription = fossils.get("Fish Fossil");
+                        break;
+                    case "tooth":
+                        fossilDescription = fossils.get("Tooth Fossil");
+                        break;
+                    default:
+                        System.out.println("The fossil you chose wasn't an option. Try again.\n");
+                        continue;
+                }
+                validFossilWasChosen = true;
+            }
+            System.out.println(fossilDescription);
         } catch(InterruptedException e){
             System.out.println(e.getMessage());
             System.exit(0);
