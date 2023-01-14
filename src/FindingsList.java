@@ -1,4 +1,6 @@
 import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Iterator;
 
 public class FindingsList {
 
@@ -6,6 +8,7 @@ public class FindingsList {
         try {
             Thread.sleep(500);
 
+            //rock samples
             String[] samples = new String[4];
             samples[0] = "rock";
             samples[1] = "weird rock";
@@ -25,6 +28,7 @@ public class FindingsList {
             printSamplesList(filteredSamples);
             System.out.println("Perfect!");
 
+            //fossils
             Thread.sleep(1000);
             HashMap<String, String> fossils = new HashMap<>();
             fossils.put("Bird Fossil", "The fossil has wings implying it was capable of flight");
@@ -54,6 +58,26 @@ public class FindingsList {
                 validFossilWasChosen = true;
             }
             System.out.println(fossilDescription);
+
+            Thread.sleep(700);
+
+            //supplies
+            HashSet<String> supplies = new HashSet<>();
+            supplies.add("oxygen tanks");
+            supplies.add("communication equipment");
+            supplies.add("duct tape");
+            supplies.add("toilet paper");
+            supplies.add("floss");
+            supplies.add("chewing gum");
+            supplies.add("chocolate bars");
+
+            System.out.println("************SUPPLIES BEFORE EXPEDITION**********");
+            printSuppliesList(supplies);
+
+            supplies.remove("floss");
+            System.out.println("************SUPPLIES AFTER EXPEDITION**********");
+            printSuppliesList(supplies);
+
         } catch(InterruptedException e){
             System.out.println(e.getMessage());
             System.exit(0);
@@ -64,6 +88,13 @@ public class FindingsList {
     private void printSamplesList(String[] samples){
         for(int i = 0; i < samples.length; i++){
             System.out.println(samples[i]);
+        }
+    }
+
+    private void printSuppliesList(HashSet<String> supplies){
+        Iterator iterator = supplies.iterator();
+        while(iterator.hasNext()){
+            System.out.println(iterator.next());
         }
     }
 }
