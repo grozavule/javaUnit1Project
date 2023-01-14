@@ -42,6 +42,8 @@ public class Mars {
 
         new MarsExpedition();
 
+        new FindingsList();
+
         Mars.scan.close();
     }
 
